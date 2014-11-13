@@ -33,15 +33,23 @@ function getBumpImages(){
 	var dir = 'img/amy/'
 	var fileextension = [".png",".jpg"];
 	$.ajax({
-	    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
-	    url: dir,
-	    success: function (data) {
-	        $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
-	            var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-	            var num = filename.replace("wk", "").replace(".jpg","");
-	            $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"Week " + num + "\" src=" + dir + filename + "></a></li>"));
-	        });
-	    }
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+      $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+        var num = filename.replace("wk", "").replace(".jpg","");
+        $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"Week " + num + "\" src=" + dir + filename + "></a></li>"));
+      });
+      $(document).foundation({
+			  clearing: {
+				  close_selectors : '.clearing-close',
+				  open_selectors : '',
+				  skip_selector : '',
+				  touch_label : '&larr;&nbsp;Swipe to Advance&nbsp;&rarr;'
+				}
+			});
+    }
 	});
 }
 
