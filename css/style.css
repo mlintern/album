@@ -23,5 +23,5 @@
 
 /* CSS Bug Fix */
 .range-slider.round .range-slider-active-segment{
-	border-radius: 1000px;
+	border-radius: 1000px 0 0 1000px;
 }
