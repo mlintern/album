@@ -1,45 +1,34 @@
-/* Same as below
-$(document).foundation({
-	slider: {
-	  on_change: function(){
-	    var value = $('.range-slider').attr('data-slider');
-	    console.log(value);
-	    $('.custom-thumbnail').css({'width':value+"%"});
-	  }
-	}
-})
-*/
-
+// Initialize Founcation Javascript
 $(document).foundation();
 
+// Slider Listener
 $('.range-slider').on('change.fndtn.slider', function(){
   var value = $('.range-slider').attr('data-slider');
   $('.custom-thumbnail').css({'width':value+"%"});
 });
 
+// Clearing Close listener
 $(document.body).on("closed.fndtn.clearing", function(event) {
   var value = $('.range-slider').attr('data-slider');
   $('.custom-thumbnail').css({'width':value+"%"});
 });
 
+// Clearing Open Listener
 $(document.body).on("open.fndtn.clearing", function(event) {
   $('.custom-thumbnail').removeAttr('style');
 });
 
+// Accordian Setup to overide Default
 $(document).foundation({
   accordion: {
-    // specify the class used for accordion panels
     content_class: 'content',
-    // specify the class used for active (or open) accordion panels
     active_class: 'active',
-    // allow multiple accordion panels to be active at the same time
     multi_expand: false,
-    // allow accordion panels to be closed by clicking on their headers
-    // setting to false only closes accordion panels when another is opened
     toggleable: false
   }
 });
 
+// Function to Get and create Thumnails for Amy Baby Bump Section from img/amy/
 function getBumpImages(){
 	var dir = 'img/amy/'
 	var fileextension = [".png",".jpg"];
@@ -47,16 +36,13 @@ function getBumpImages(){
 	    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
 	    url: dir,
 	    success: function (data) {
-	        //console.log(data);
 	        $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
 	            var filename = this.href.replace(window.location.host, "").replace("http:///", "");
 	            var num = filename.replace("wk", "").replace(".jpg","");
-		    console.info(filename);
-	            //$(destination).append($("<img src=" + dir + filename + "></img>"));
 	            $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"Week " + num + "\" src=" + dir + filename + "></a></li>"));
 	        });
 	    }
 	});
 }
 
-getBumpImages()
+// getBumpImages()
