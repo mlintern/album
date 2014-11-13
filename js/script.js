@@ -53,7 +53,7 @@ function getBumpImages(){
 	            var num = filename.replace("wk", "").replace(".jpg","");
 		    console.info(filename);
 	            //$(destination).append($("<img src=" + dir + filename + "></img>"));
-	            $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"Week " + num + " src=" + dir + filename + "></a></li>"));
+	            $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"Week " + num + "\" src=" + dir + filename + "></a></li>"));
 	        });
 	    }
 	});
