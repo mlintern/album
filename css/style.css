@@ -20,3 +20,8 @@
 .accordion .accordion-navigation.active > a, .accordion dd.active > a {
 	background: transparent;
 }
+
+/* CSS Bug Fix */
+.range-slider.round .range-slider-active-segment{
+	border-radius: 1000px;
+}
