@@ -1,6 +1,3 @@
-// Initialize Founcation Javascript
-$(document).foundation();
-
 // Slider Listener
 $('.range-slider').on('change.fndtn.slider', function(){
   var value = $('.range-slider').attr('data-slider');

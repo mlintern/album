@@ -20,6 +20,11 @@
 .accordion .accordion-navigation.active > a, .accordion dd.active > a {
 	background: transparent;
 }
+.accordion .accordion-navigation > a, .accordion dd > a {
+	color: #007ba4;
+	font-family: 'Permanent Marker', sans-serif;
+	font-size: 4rem;
+}
 
 /* CSS Bug Fix */
 .range-slider.round .range-slider-active-segment{
