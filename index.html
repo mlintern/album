@@ -44,9 +44,9 @@
 
         <!-- Left Nav Section -->
         <ul class="left">
-          <li><a href="javascript:void(0);" onclick="$('#set1').click();">Amy's Baby Bump</a></li>
-          <li><a href="javascript:void(0);" onclick="$('#set2').click();">Two</a></li>
-          <li><a href="javascript:void(0);" onclick="$('#set3').click();">Three</a></li>
+          <li><a href="javascript:void(0);" onclick="$('#set-amy').click();">Amy's Baby Bump</a></li>
+          <li><a href="javascript:void(0);" onclick="$('#set-a').click();">Two</a></li>
+          <li><a href="javascript:void(0);" onclick="$('#set-b').click();">Three</a></li>
         </ul>
       </section>
     </nav>
@@ -67,10 +67,10 @@
 
       <dl class="accordion" data-accordion>
         <dd class="accordion-navigation">
-          <a id="set1" href="#panel1">Amy's Baby Bump</a>
-          <div id="panel1" class="content active">
+          <a id="set-amy" href="#panel-amy">Amy's Baby Bump</a>
+          <div id="panel-amy" class="content active">
             
-            <ul class="clearing-thumbs" data-clearing>
+            <ul class="clearing-thumbs amy-bump" data-clearing>
               <li class="custom-thumbnail columns"><a class="th radius" href="img/amy/wk15.jpg"><img data-caption="Week 15" src="img/amy/wk15.jpg"></a></li>
               <li class="custom-thumbnail columns"><a class="th radius" href="img/amy/wk16.jpg"><img data-caption="Week 16" src="img/amy/wk16.jpg"></a></li>
               <li class="custom-thumbnail columns"><a class="th radius" href="img/amy/wk17.jpg"><img data-caption="Week 17" src="img/amy/wk17.jpg"></a></li>
@@ -101,8 +101,8 @@
           </div>
         </dd>
         <dd class="accordion-navigation">
-          <a id="set2" href="#panel2">Another Set of Pictures</a>
-          <div id="panel2" class="content">
+          <a id="set-a" href="#panel-a">Another Set of Pictures</a>
+          <div id="panel-a" class="content">
 
             <ul class="clearing-thumbs" data-clearing>
               <li class="custom-thumbnail columns"><a class="th radius" href="http://placehold.it/1000"><img data-caption="Caption" src="http://placehold.it/1000"></a></li>
@@ -111,8 +111,8 @@
           </div>
         </dd>
         <dd class="accordion-navigation">
-          <a id="set3" href="#panel3">Another Set of Pictures</a>
-          <div id="panel3" class="content">
+          <a id="set-b" href="#panel-b">Another Set of Pictures</a>
+          <div id="panel-b" class="content">
 
             <ul class="clearing-thumbs" data-clearing>
               <li class="custom-thumbnail columns"><a class="th radius" href="http://placehold.it/1000"><img data-caption="Caption" src="http://placehold.it/1000"></a></li>
@@ -128,9 +128,6 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
     <script src="js/script.js"></script>
 
   </body>

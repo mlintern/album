@@ -1,5 +1,5 @@
 /* Same as below
-$(docuemnt).founcation({
+$(document).foundation({
 	slider: {
 	  on_change: function(){
 	    var value = $('.range-slider').attr('data-slider');
@@ -9,6 +9,8 @@ $(docuemnt).founcation({
 	}
 })
 */
+
+$(document).foundation();
 
 $('.range-slider').on('change.fndtn.slider', function(){
   var value = $('.range-slider').attr('data-slider');
@@ -37,3 +39,20 @@ $(document).foundation({
     toggleable: false
   }
 });
+
+function getImages( dir, destination ){
+	var fileextension = [".png",".jpg"];
+	$.ajax({
+	    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+	    url: dir,
+	    success: function (data) {
+	        console.log(data);
+	        $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
+	            var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+	            $(destination).append($("<img src=" + dir + filename + "></img>"));
+	        });
+	    }
+	});
+}
+
+getImages('img/amy', '#asdf')
