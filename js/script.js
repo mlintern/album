@@ -40,7 +40,8 @@ $(document).foundation({
   }
 });
 
-function getImages( dir, destination ){
+function getBumpImages(){
+	var dir = 'img/amy/'
 	var fileextension = [".png",".jpg"];
 	$.ajax({
 	    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
@@ -49,11 +50,13 @@ function getImages( dir, destination ){
 	        //console.log(data);
 	        $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
 	            var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+	            var num = filename.replace("wk", "").replace(".jpg","");
 		    console.info(filename);
-	            $(destination).append($("<img src=" + dir + filename + "></img>"));
+	            //$(destination).append($("<img src=" + dir + filename + "></img>"));
+	            $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"Week " + num + " src=" + dir + filename + "></a></li>"));
 	        });
 	    }
 	});
 }
 
-getImages('img/amy/', '.amy-bump')
+getBumpImages()
