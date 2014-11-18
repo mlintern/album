@@ -53,7 +53,7 @@ function getBumpImages(){
 // Function to Get and create Thumnails for Amy Baby Bump Section from img/amy/
 function getNurseryImages(){
   var dir = 'img/nursery/'
-  var fileextension = [".png",".jpg"];
+  var fileextension = [".JPG",".jpg"];
   $.ajax({
     //This will retrieve the contents of the folder if the folder is configured as 'browsable'
     url: dir,
