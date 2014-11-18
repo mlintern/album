@@ -60,7 +60,7 @@ function getNurseryImages(){
     success: function (data) {
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-        $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img src=" + dir + filename + "></a></li>"));
+        $('.nursery').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img src=" + dir + filename + "></a></li>"));
       });
       $(document).foundation({
         clearing: {
