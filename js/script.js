@@ -50,4 +50,29 @@ function getBumpImages(){
 	});
 }
 
-getBumpImages()
+// Function to Get and create Thumnails for Amy Baby Bump Section from img/amy/
+function getNurseryImages(){
+  var dir = 'img/nursery/'
+  var fileextension = [".png",".jpg"];
+  $.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+      $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+        $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img src=" + dir + filename + "></a></li>"));
+      });
+      $(document).foundation({
+        clearing: {
+          close_selectors : '.clearing-close',
+          open_selectors : '',
+          skip_selector : '',
+          touch_label : '&larr;&nbsp;Swipe to Advance&nbsp;&rarr;'
+        }
+      });
+    }
+  });
+}
+
+getBumpImages();
+getNurseryImages();
