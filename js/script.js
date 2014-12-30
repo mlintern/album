@@ -5,13 +5,13 @@ $('.range-slider').on('change.fndtn.slider', function(){
 });
 
 // Clearing Close listener
-$(document.body).on("closed.fndtn.clearing", function(event) {
+$(document.body).on("closed.fndtn.clearing", function() {
   var value = $('.range-slider').attr('data-slider');
   $('.custom-thumbnail').css({'width':value+"%"});
 });
 
 // Clearing Open Listener
-$(document.body).on("open.fndtn.clearing", function(event) {
+$(document.body).on("open.fndtn.clearing", function() {
   $('.custom-thumbnail').removeAttr('style');
 });
 
@@ -27,7 +27,7 @@ $(document).foundation({
 
 // Function to Get and create Thumnails for Amy Baby Bump Section from img/amy/
 function getBumpImages(){
-	var dir = 'img/amy/'
+	var dir = 'img/amy/';
 	var fileextension = [".png",".jpg"];
 	$.ajax({
     //This will retrieve the contents of the folder if the folder is configured as 'browsable'
@@ -52,7 +52,7 @@ function getBumpImages(){
 
 // Function to Get and create Thumnails for Amy Baby Bump Section from img/amy/
 function getNurseryImages(){
-  var dir = 'img/nursery/'
+  var dir = 'img/nursery/';
   var fileextension = [".JPG",".jpg"];
   $.ajax({
     //This will retrieve the contents of the folder if the folder is configured as 'browsable'
