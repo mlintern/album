@@ -86,7 +86,7 @@ function getMackenzieWeekImages(){
         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
         label = "Week"
         var num = filename.replace("wk", "").replace(".jpg","");
-        $('.mackenzie').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
+        $('.mackenzie-wk').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
       });
       $(document).foundation({
         clearing: {
@@ -111,7 +111,7 @@ function getMackenzieMonthImages(){
         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
         label = "Month"
         var num = filename.replace("wk", "").replace(".jpg","");
-        $('.mackenzie').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
+        $('.mackenzie-mo').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
       });
       $(document).foundation({
         clearing: {
