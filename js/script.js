@@ -50,7 +50,7 @@ function getBumpImages(){
 	});
 }
 
-// Function to Get and create Thumnails for Amy Baby Bump Section from img/amy/
+// Function to Get and create Thumnails for Nursery Section from img/amy/
 function getNurseryImages(){
   var dir = 'img/nursery/';
   var fileextension = [".JPG",".jpg"];
@@ -61,6 +61,35 @@ function getNurseryImages(){
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
         $('.nursery').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img src=" + dir + filename + "></a></li>"));
+      });
+      $(document).foundation({
+        clearing: {
+          close_selectors : '.clearing-close',
+          open_selectors : '',
+          skip_selector : '',
+          touch_label : '&larr;&nbsp;Swipe to Advance&nbsp;&rarr;'
+        }
+      });
+    }
+  });
+}
+
+// Function to Get and create Thumnails for Mackenzie Section from img/amy/
+function getMackenzieImages(){
+  var dir = 'img/mackenzie/';
+  var fileextension = [".png",".jpg"];
+  $.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+      $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+        label = "Week"
+        if (filename.indexOf("mos") > -1) {
+          label = "Month"
+        }
+        var num = filename.replace("wk", "").replace(".jpg","");
+        $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
       });
       $(document).foundation({
         clearing: {
