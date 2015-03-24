@@ -75,8 +75,8 @@ function getNurseryImages(){
 }
 
 // Function to Get and create Thumnails for Mackenzie Section from img/amy/
-function getMackenzieImages(){
-  var dir = 'img/mackenzie/';
+function getMackenzieWeekImages(){
+  var dir = 'img/mackenzie/wk/';
   var fileextension = [".png",".jpg"];
   $.ajax({
     //This will retrieve the contents of the folder if the folder is configured as 'browsable'
@@ -85,9 +85,6 @@ function getMackenzieImages(){
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
         label = "Week"
-        if (filename.indexOf("mos") > -1) {
-          label = "Month"
-        }
         var num = filename.replace("wk", "").replace(".jpg","");
         $('.mackenzie').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
       });
@@ -103,6 +100,32 @@ function getMackenzieImages(){
   });
 }
 
-getMackenzieImages();
+function getMackenzieMonthImages(){
+  var dir = 'img/mackenzie/mo/';
+  var fileextension = [".png",".jpg"];
+  $.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+      $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+        label = "Month"
+        var num = filename.replace("wk", "").replace(".jpg","");
+        $('.mackenzie').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
+      });
+      $(document).foundation({
+        clearing: {
+          close_selectors : '.clearing-close',
+          open_selectors : '',
+          skip_selector : '',
+          touch_label : '&larr;&nbsp;Swipe to Advance&nbsp;&rarr;'
+        }
+      });
+    }
+  });
+}
+
+getMackenzieMonthImages();
+getMackenzieWeekImages();
 getBumpImages();
 getNurseryImages();
