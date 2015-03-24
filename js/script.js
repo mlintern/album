@@ -105,3 +105,4 @@ function getMackenzieImages(){
 
 getBumpImages();
 getNurseryImages();
+getMackenzieImages();
