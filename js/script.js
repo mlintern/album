@@ -103,6 +103,6 @@ function getMackenzieImages(){
   });
 }
 
+getMackenzieImages();
 getBumpImages();
 getNurseryImages();
-getMackenzieImages();
