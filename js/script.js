@@ -89,7 +89,7 @@ function getMackenzieImages(){
           label = "Month"
         }
         var num = filename.replace("wk", "").replace(".jpg","");
-        $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
+        $('.mackenzie').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
       });
       $(document).foundation({
         clearing: {
