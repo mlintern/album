@@ -30,3 +30,18 @@
 .range-slider.round .range-slider-active-segment{
 	border-radius: 1000px 0 0 1000px;
 }
+
+@media (max-width: 767px) {
+	.accordion .accordion-navigation > a, .accordion dd > a {
+	  font-size: 2rem;
+	}
+	.accordion .accordion-navigation > .content, .accordion dd > .content {
+	  display: block;
+	}
+	.hidden-xs {
+		display: none;
+	}
+	.custom-thumbnail{
+		width: 50%;
+	}
+}

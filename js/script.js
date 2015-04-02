@@ -1,7 +1,13 @@
 // Slider Listener
+var loaded = false;
 $('.range-slider').on('change.fndtn.slider', function(){
   var value = $('.range-slider').attr('data-slider');
-  $('.custom-thumbnail').css({'width':value+"%"});
+  if ( ( value > 16 ) && ( loaded == false ) ) {
+    loaded = true;
+  }
+  if ( loaded ) {
+    $('.custom-thumbnail').css({'width':value+"%"});
+  }
 });
 
 // Clearing Close listener
