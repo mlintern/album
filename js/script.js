@@ -37,14 +37,14 @@ $(document).foundation({
 
 // Function to Get and create Thumnails for Amy Baby Bump Section from img/amy/
 function getBumpImages(){
-	var dir = 'img/amy/';
+	var dir = '/img/amy/';
 	var fileextension = [".png",".jpg"];
 	$.ajax({
     //This will retrieve the contents of the folder if the folder is configured as 'browsable'
     url: dir,
     success: function (data) {
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
-        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "").replace("amy/","");
         var num = filename.replace("wk", "").replace(".jpg","");
         $('.amy-bump').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"Week " + num + "\" src=" + dir + filename + "></a></li>"));
       });
@@ -62,14 +62,14 @@ function getBumpImages(){
 
 // Function to Get and create Thumnails for Nursery Section from img/amy/
 function getNurseryImages(){
-  var dir = 'img/nursery/';
+  var dir = '/img/nursery/';
   var fileextension = [".JPG",".jpg"];
   $.ajax({
     //This will retrieve the contents of the folder if the folder is configured as 'browsable'
     url: dir,
     success: function (data) {
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
-        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "").replace("nursery/","");
         $('.nursery').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img src=" + dir + filename + "></a></li>"));
       });
       $(document).foundation({
@@ -86,15 +86,16 @@ function getNurseryImages(){
 
 // Function to Get and create Thumnails for Mackenzie Section from img/amy/
 function getMackenzieWeekImages(){
-  var dir = 'img/mackenzie/wk/';
+  var dir = '/img/mackenzie/wk/';
   var fileextension = [".png",".jpg"];
   $.ajax({
     //This will retrieve the contents of the folder if the folder is configured as 'browsable'
     url: dir,
     success: function (data) {
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
-        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-        label = "Week "
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "").replace("weeks/","");
+        console.log(filename);
+        label = "Week ";
         var num = filename.replace("wks", "").replace(".jpg","");
         $('.mackenzie-wk').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
       });
@@ -119,7 +120,7 @@ function getMackenzieMonthImages(){
     success: function (data) {
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
         var filename = this.href.replace(window.location.host, "").replace("http:///", "");
-        label = "Month "
+        label = "Month ";
         var num = filename.replace("mos", "").replace(".jpg","");
         $('.mackenzie-mo').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
       });
@@ -135,7 +136,7 @@ function getMackenzieMonthImages(){
   });
 }
 
-getMackenzieMonthImages();
-getMackenzieWeekImages();
-getBumpImages();
-getNurseryImages();
+// getMackenzieMonthImages();
+// getMackenzieWeekImages();
+// getBumpImages();
+// getNurseryImages();
