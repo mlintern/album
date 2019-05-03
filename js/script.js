@@ -112,7 +112,7 @@ function getMackenzieWeekImages(){
 }
 
 function getMackenzieMonthImages(){
-  var dir = 'img/mackenzie/mo/';
+  var dir = '/img/mackenzie/mo/';
   var fileextension = [".png",".jpg"];
   $.ajax({
     //This will retrieve the contents of the folder if the folder is configured as 'browsable'
@@ -136,7 +136,27 @@ function getMackenzieMonthImages(){
   });
 }
 
-// getMackenzieMonthImages();
-// getMackenzieWeekImages();
-// getBumpImages();
-// getNurseryImages();
+function getBarrettMonthImages(){
+  var dir = '/img/barrett/mo/';
+  var fileextension = [".png",".jpg","jpeg"];
+  $.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+      $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+        label = "Month ";
+        var num = filename.replace("mos", "").replace(".jpg","");
+        $('.barrett-mo').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
+      });
+      $(document).foundation({
+        clearing: {
+          close_selectors : '.clearing-close',
+          open_selectors : '',
+          skip_selector : '',
+          touch_label : '&larr;&nbsp;Swipe to Advance&nbsp;&rarr;'
+        }
+      });
+    }
+  });
+}
