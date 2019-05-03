@@ -94,7 +94,7 @@ function getBarrettMonthImages () {
     //This will retrieve the contents of the folder if the folder is configured as 'browsable'
     url: dir,
     success: function (data) {
-      $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
+      $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + "), a:contains(" + (fileextension[2]) + ")").each(function () {
         var filename = this.href.replace(window.location.host, "").replace("http:///", "").replace("barrett-months/","");
         label = "Month ";
         var num = filename.replace("mos", "").replace(".jpeg","");
