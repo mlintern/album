@@ -44,7 +44,7 @@ function getMackenzieWeekImages(){
     url: dir,
     success: function (data) {
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
-        var filename = this.href.replace(window.location.host, "").replace("http:///", "").replace("mackenzie-weeks/","");
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "").replace("https:///", "").replace("mackenzie-weeks/","");
         console.log(filename);
         label = "Week ";
         var num = filename.replace("wks", "").replace(".jpg","");
@@ -70,7 +70,7 @@ function getMackenzieMonthImages(){
     url: dir,
     success: function (data) {
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + ")").each(function () {
-        var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "").replace("https:///", "");
         label = "Month ";
         var num = filename.replace("mos", "").replace(".jpg","");
         $('.mackenzie-mo').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
@@ -95,7 +95,7 @@ function getBarrettMonthImages () {
     url: dir,
     success: function (data) {
       $(data).find("a:contains(" + (fileextension[0]) + "), a:contains(" + (fileextension[1]) + "), a:contains(" + (fileextension[2]) + ")").each(function () {
-        var filename = this.href.replace(window.location.host, "").replace("http:///", "").replace("barrett-months/","");
+        var filename = this.href.replace(window.location.host, "").replace("http:///", "").replace("https:///", "").replace("barrett-months/","");
         label = "Month ";
         var num = filename.replace("mos", "").replace(".jpeg","");
         $('.barrett-mo').append($("<li class=\"custom-thumbnail columns\"><a class=\"th radius\" href=" + dir + filename + "><img data-caption=\"" + label + num + "\" src=" + dir + filename + "></a></li>"));
